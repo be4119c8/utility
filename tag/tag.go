@@ -8,7 +8,6 @@ import (
 
 const TAGNAME = "be4119c8"
 
-
 func CheckStructByTag(obj interface{}, tagname string) error {
 	if tagname == "" {
 		tagname = TAGNAME
