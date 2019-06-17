@@ -1,11 +1,9 @@
 package sha256
 
-
 import (
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/base64"
-	"github.com/be4119c8/utility/security/signature"
 )
 
 type HmacSha256 struct {
@@ -27,6 +25,6 @@ func( h *HmacSha256) Init( data []byte, key string ){
 }
 
 
-func New( ) signature.Encoder {
+func New( ) *HmacSha256 {
 	return new(HmacSha256)
 }

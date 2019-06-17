@@ -1,17 +1,17 @@
 package sha1
 
-
 import (
 	"crypto/hmac"
 	"crypto/sha1"
 	"encoding/base64"
-	"github.com/be4119c8/utility/security/signature"
 )
 
 type HmacSha1 struct {
 	data []byte
 	key string
 }
+
+
 
 func (h *HmacSha1) Encode( ) string {
 
@@ -27,6 +27,6 @@ func (h *HmacSha1) Init(data []byte, key string ){
 }
 
 
-func New() signature.Encoder {
+func New() *HmacSha1{
 	return new(HmacSha1)
 }
