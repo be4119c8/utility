@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-func qcloud_example() {
+func Qcloud_example() {
 	var params = make( map[string]string )
 	params["Region"] = "all"
 	params["Timestamp"] = strconv.Itoa(int( time.Now().Unix()))
