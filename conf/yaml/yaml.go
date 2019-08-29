@@ -36,8 +36,8 @@ func New(path string) (conf.Conf,error){
 		return nil,errors.New("Path is empty!")
 	}
 
-	jsonConf := JsonConf{
+	yamlConf := YamlConf{
 		path,
 	}
-	return jsonConf,nil
+	return yamlConf,nil
 }
