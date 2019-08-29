@@ -1,7 +1,7 @@
 package conf
 
 type Conf interface {
-	GetConf(t interface{}) (interface{},error)
+	GetConf(t interface{}) error
 }
 
 func New(e func(string)(Conf,error),path string) (Conf,error){

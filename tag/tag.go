@@ -14,7 +14,7 @@ func CheckStructByTag(obj interface{}, tagname string) error {
 	}
 	t := reflect.TypeOf(obj)
 	val := reflect.ValueOf(obj)
-	if t.Kind().String() == "ptr" {
+	if t.Kind() == reflect.Ptr {
 		t = t.Elem()
 		val = val.Elem()
 	}
