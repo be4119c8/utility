@@ -1,6 +1,7 @@
 package yaml
 
 import (
+	"fmt"
 	"gopkg.in/yaml.v2"
 	"errors"
 	"github.com/be4119c8/utility/conf"
@@ -16,6 +17,8 @@ type YamlConf struct {
 func (yamlConf YamlConf) GetConf(t interface{}) error {
 	v := reflect.ValueOf(t)
 	var err error
+	fmt.Println(v.IsNil())
+	fmt.Println(v.Kind().String())
 	if v.Kind() == reflect.Ptr && !v.IsNil() {
 		content, err := ioutil.ReadFile(yamlConf.path)
 		if err != nil {
