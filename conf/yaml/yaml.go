@@ -19,16 +19,16 @@ func (yamlConf YamlConf) GetConf(t interface{}) error {
 	if v.Kind() == reflect.Ptr && !v.IsNil() {
 		content, err := ioutil.ReadFile(yamlConf.path)
 		if err != nil {
-			return nil, err
+			return err
 		}
 		err = yaml.Unmarshal(content, t)
 		if err != nil {
-			return nil, err
+			return err
 		}
-		return t, nil
+		return nil
 	}
 	err = errors.New("GetConf Params Error!!")
-	return nil,err
+	return err
 }
 
 func New(path string) (conf.Conf,error){
