@@ -1,4 +1,4 @@
-package signature
+package encoder
 
 type Encoder interface {
 	Encode() string

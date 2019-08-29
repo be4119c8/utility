@@ -2,6 +2,7 @@ package app
 
 import (
 	"github.com/be4119c8/utility/payment/weixin"
+	"github.com/be4119c8/utility/tag"
 	"math/rand"
 	"strconv"
 	"time"
@@ -138,6 +139,9 @@ func (req *UnifiedorderRequest) SetExtParams(
 }
 
 func (req *UnifiedorderRequest) CheckRequestParams () error {
-
+	err := tag.CheckStructByTag(req,tag.TAGNAME)
+	if err != nil {
+		return err
+	}
 	return nil
 }

@@ -2,14 +2,14 @@ package qcloud
 
 import (
 	"bytes"
-	"github.com/be4119c8/utility/security/signature"
+	"github.com/be4119c8/utility/security/signature/encoder"
 	"sort"
 )
 
 type Signature struct {
 	securityKey string
-	prefix string
-	En signature.Encoder
+	prefix      string
+	En          encoder.Encoder
 }
 
 
@@ -42,7 +42,7 @@ func (sign *Signature)CheckSignature(signature string, params map[string]string)
 	return false
 }
 
-func New( e func() signature.Encoder, key string, prefix string ) *Signature {
+func New( e func() encoder.Encoder, key string, prefix string ) *Signature {
 	sign := new( Signature )
 	sign.En = e()
 	sign.securityKey = key
