@@ -1,10 +1,10 @@
 package yaml
 
 import (
-	"fmt"
-	"gopkg.in/yaml.v2"
 	"errors"
-	"github.com/be4119c8/utility/conf"
+	"fmt"
+	"github.com/be4119c8/utility/conf/common"
+	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"reflect"
 )
@@ -17,7 +17,6 @@ type YamlConf struct {
 func (yamlConf YamlConf) GetConf(t interface{}) error {
 	v := reflect.ValueOf(t)
 	var err error
-	fmt.Println(v.IsNil())
 	fmt.Println(v.Kind().String())
 	if v.Kind() == reflect.Ptr && !v.IsNil() {
 		content, err := ioutil.ReadFile(yamlConf.path)
@@ -30,11 +29,11 @@ func (yamlConf YamlConf) GetConf(t interface{}) error {
 		}
 		return nil
 	}
-	err = errors.New("GetConf Params Error!!")
+	err = errors.New("GetConf Params Error!! Params require is ptr.")
 	return err
 }
 
-func New(path string) (conf.Conf,error){
+func New(path string) (common.Conf,error){
 	if path == "" {
 		return nil,errors.New("Path is empty!")
 	}

@@ -3,7 +3,7 @@ package json
 import (
 	"encoding/json"
 	"errors"
-	"github.com/be4119c8/utility/conf"
+	"github.com/be4119c8/utility/conf/common"
 	"io/ioutil"
 	"reflect"
 )
@@ -27,11 +27,11 @@ func (jsConf JsonConf) GetConf(t interface{}) error {
 		}
 		return nil
 	}
-	err = errors.New("GetConf Params Error!!")
+	err = errors.New("GetConf Params Error!! Params require is ptr.")
 	return err
 }
 
-func New(path string) (conf.Conf,error){
+func New(path string) (common.Conf,error){
 	if path == "" {
 		return nil,errors.New("Path is empty!")
 	}

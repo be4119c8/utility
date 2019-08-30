@@ -1,10 +1,10 @@
 package conf
 
-type Conf interface {
-	GetConf(t interface{}) error
-}
+import(
+	"github.com/be4119c8/utility/conf/common"
+)
 
-func New(e func(string)(Conf,error),path string) (Conf,error){
+func New(e func(string)(common.Conf,error),path string) (common.Conf,error){
 	conf,err := e(path)
 	if err != nil {
 		return nil,err
